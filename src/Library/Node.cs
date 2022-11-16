@@ -9,6 +9,7 @@ namespace Library
         private int number;
 
         private List<Node> children = new List<Node>();
+        public Person person;
 
         public int Number {
             get
@@ -28,11 +29,19 @@ namespace Library
         {
             this.number = number;
         }
+        public void SetPerson(string nombre, int edad)
+        {
+            this.person=new Person(nombre, edad);
+        }
 
         public void AddChildren(Node n)
         {
             this.children.Add(n);
         }
         
+        public void Accept(Visitor visitor)
+        {
+            visitor.Visit(this);
+        }
     }
 }

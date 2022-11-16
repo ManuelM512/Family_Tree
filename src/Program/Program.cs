@@ -24,7 +24,23 @@ namespace Program
             n3.AddChildren(n6);
             n3.AddChildren(n7);
 
+            n1.SetPerson("Luis", 78);
+            //Hijos de n1
+            n2.SetPerson("Jorge", 60);
+            n3.SetPerson("Carlos", 58);
+            //Hijos de n2
+            n4.SetPerson("José", 40);
+            n5.SetPerson("Juan", 42);
+            //Hijos de n3
+            n6.SetPerson("Alberto", 41);
+            n7.SetPerson("Pedro", 43);
             // visitar el árbol aquí
+            Visitor visitor = new AgeVisitor();
+            n1.Accept(visitor);
+            Console.WriteLine(visitor.Content);
+            visitor = new NameVisitor();
+            n1.Accept(visitor);
+            Console.WriteLine(visitor.Content);
         }
     }
 }
